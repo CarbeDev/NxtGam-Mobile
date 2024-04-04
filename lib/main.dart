@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/login/login_screen.dart';
 import 'package:supertokens_flutter/supertokens.dart';
+
+import 'features/login/login_screen.dart';
 
 void main() {
   SuperTokens.init(apiDomain: "http://localhost:8080", apiBasePath: "/auth");
