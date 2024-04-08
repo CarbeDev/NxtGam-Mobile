@@ -16,13 +16,11 @@ class LoginCubit extends Cubit<LoginState> {
 
       if (Platform.isAndroid) {
         String? serverClientId =
-            const String.fromEnvironment("google_server_client_id");
-
+            const String.fromEnvironment("GOOGLE_CLIENT_ID");
         if (serverClientId.isEmpty) {
           emit(LoginFailure("google server client id is missing"));
           return;
         }
-
         googleSignIn =
             GoogleSignIn(serverClientId: "SERVER_CLIENT_ID", scopes: ['email']);
       } else {
