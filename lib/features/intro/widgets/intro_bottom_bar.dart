@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/shared/buttons.dart';
+import 'package:mobile_app/shared/nxtgame_buttons.dart';
 
 class IntroBottomBar extends StatelessWidget {
   const IntroBottomBar({super.key});

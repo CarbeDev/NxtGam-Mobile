@@ -16,7 +16,7 @@ abstract class NxtGameButton extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(background),
-          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          foregroundColor: MaterialStateProperty.all<Color>(textColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0))),
           padding: MaterialStateProperty.all<EdgeInsets>(
