@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/shared/nxtgame_colors.dart';
 
 abstract class NxtGameButton extends StatelessWidget {
   final String text;
@@ -28,5 +29,5 @@ abstract class NxtGameButton extends StatelessWidget {
 
 class NxtGamePrimaryButton extends NxtGameButton {
   const NxtGamePrimaryButton(String text, VoidCallback onPressed, {super.key})
-      : super(text, const Color(0xFF3EB489), Colors.white, onPressed);
+      : super(text, NxtGameColors.primary, NxtGameColors.white, onPressed);
 }
