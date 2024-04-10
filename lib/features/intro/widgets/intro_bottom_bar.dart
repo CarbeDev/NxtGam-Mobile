@@ -10,16 +10,19 @@ class IntroBottomBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Align(
-          alignment: Alignment.centerLeft,
-          child: ElevatedButton(
-            onPressed: () {
-              print('Bouton gauche pressé');
+          alignment: Alignment.bottomLeft,
+          child: InkWell(
+            onTap: () {
+              print("tapped");
             },
-            child: const Text('Bouton Gauche'),
+            child: const Text(
+              "Passer",
+              style: TextStyle(color: Color(0xFF3EB489)),
+            ),
           ),
         ),
         Align(
-            alignment: Alignment.centerRight,
+            alignment: Alignment.bottomRight,
             child: NxtGamePrimaryButton("Suivant", () {})),
       ],
     );
