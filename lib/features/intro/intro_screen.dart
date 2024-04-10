@@ -7,13 +7,14 @@ class IntroScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("Création d'équipe personnalisée"),
-        ],
-      ),
-      bottomNavigationBar: IntroBottomBar(),
-    );
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Création d'équipe personnalisée"),
+          ],
+        ),
+        bottomNavigationBar: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: IntroBottomBar()));
   }
 }

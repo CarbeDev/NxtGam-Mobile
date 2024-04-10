@@ -13,9 +13,12 @@ class IntroBottomBar extends StatelessWidget {
           onTap: () {
             print("tapped");
           },
-          child: const Text(
-            "Passer",
-            style: TextStyle(color: Color(0xFF3EB489)),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 34.0),
+            child: Text(
+              "Passer",
+              style: TextStyle(color: Color(0xFF3EB489)),
+            ),
           ),
         ),
         NxtGamePrimaryButton("Suivant", () {}),
