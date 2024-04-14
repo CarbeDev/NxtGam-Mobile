@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_app/features/intro/widgets/intro_bottom_bar.dart';
+import 'package:mobile_app/shared/nxtgame_colors.dart';
+import 'package:mobile_app/shared/widgets/nxtgame_texts.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("Création d'équipe personnalisée"),
+              Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: SvgPicture.asset(
+                    "assets/svg/team-svgrepo-com.svg",
+                    fit: BoxFit.fitWidth,
+                    colorFilter: const ColorFilter.mode(
+                        NxtGameColors.black, BlendMode.srcIn),
+                  )),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: NxtGameTitle("Création d'équipe personnalisée"),
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: NxtGameDescription(
+                    "Sélectionnez vos joueurs préférés parmi les ligues les plus prestigieuses pour former votre équipe idéale. Avec notre interface intuitive, la gestion de votre équipe n'a jamais été aussi facile et amusante."),
+              )
             ],
           ),
         ),
-        bottomNavigationBar: Padding(
+        bottomNavigationBar: const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: IntroBottomBar()));
   }
