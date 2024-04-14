@@ -1,11 +1,20 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/features/intro/intro_screen.dart';
 import 'package:supertokens_flutter/supertokens.dart';
 
-
-void main() {
+Future<void> main() async {
   SuperTokens.init(apiDomain: "http://localhost:8080", apiBasePath: "/auth");
-  runApp(const MyApp());
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+
+  runApp(EasyLocalization(
+    supportedLocales: const [Locale('en', 'US'), Locale('fr', 'FR')],
+    path: "assets/translations",
+    fallbackLocale: const Locale('en', 'US'),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +25,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NxtGam',
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
         fontFamily: 'Lexend',

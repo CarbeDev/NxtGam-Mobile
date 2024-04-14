@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
 import 'package:mobile_app/shared/widgets/nxtgame_buttons.dart';
@@ -14,15 +15,15 @@ class IntroBottomBar extends StatelessWidget {
           onTap: () {
             print("tapped");
           },
-          child: const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 34.0),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 34.0),
             child: Text(
-              "Passer",
-              style: TextStyle(color: NxtGameColors.primary),
+              "Skip".tr(),
+              style: const TextStyle(color: NxtGameColors.primary),
             ),
           ),
         ),
-        NxtGamePrimaryButton("Suivant", () {}),
+        NxtGamePrimaryButton("Next".tr(), () {}),
       ],
     );
   }

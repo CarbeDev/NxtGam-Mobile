@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_app/features/intro/widgets/intro_bottom_bar.dart';
@@ -22,14 +23,13 @@ class IntroScreen extends StatelessWidget {
                     colorFilter: const ColorFilter.mode(
                         NxtGameColors.black, BlendMode.srcIn),
                   )),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: NxtGameTitle("Création d'équipe personnalisée"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: NxtGameTitle("CreateTeamIntroTitle".tr()),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: NxtGameDescription(
-                    "Sélectionnez vos joueurs préférés parmi les ligues les plus prestigieuses pour former votre équipe idéale. Avec notre interface intuitive, la gestion de votre équipe n'a jamais été aussi facile et amusante."),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: NxtGameDescription("CreateTeamIntroDescription".tr()),
               )
             ],
           ),
