@@ -1,35 +1,43 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class IntroCubit extends Cubit<IntroState> {
-  IntroCubit() : super(InProgressIntoState(0));
+  IntroCubit() : super(InProgressIntroState(0));
 
   void goNext() {
     if (state is FinishedIntroState) throw Exception();
 
-    var currentState = (state as InProgressIntoState);
+    var currentState = (state as InProgressIntroState);
     if (currentState.isLastData) {
       emit(FinishedIntroState());
     } else {
-      emit(InProgressIntoState(currentState.displayedData++));
+      emit(InProgressIntroState(++currentState.displayedData));
     }
   }
 }
 
 abstract class IntroState {
   static final introData = [
-    IntroScreenData("assets/svg/team-svgrepo-com.svg", "CreateTeamIntroTitle",
+    IntroScreenData("assets/svg/team-intro.svg", "CreateTeamIntroTitle",
         "CreateTeamIntroDescription"),
-    IntroScreenData("", "PointSystemIntroTitle", "PointSystemIntroDescription"),
-    IntroScreenData("", "LeagueIntroTitle", "LeagueIntroDescription")
+    IntroScreenData("assets/svg/checkmark-circle.svg", "PointSystemIntroTitle",
+        "PointSystemIntroDescription"),
+    IntroScreenData(
+        "assets/svg/ranking.svg", "LeagueIntroTitle", "LeagueIntroDescription"),
+    IntroScreenData(
+        "assets/svg/cart.svg", "MarketIntroTitle", "MarketIntroDescription")
   ];
 }
 
-class InProgressIntoState extends IntroState {
+class InProgressIntroState extends IntroState {
   int displayedData;
   late bool isLastData;
 
-  InProgressIntoState(this.displayedData) {
-    isLastData = displayedData >= IntroState.introData.length;
+  InProgressIntroState(this.displayedData) {
+    isLastData = displayedData >= IntroState.introData.length - 1;
+  }
+
+  IntroScreenData getData() {
+    return IntroState.introData[displayedData];
   }
 }
 
