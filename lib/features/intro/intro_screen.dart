@@ -6,7 +6,7 @@ import 'package:mobile_app/shared/nxtgame_colors.dart';
 import 'package:mobile_app/shared/widgets/nxtgame_texts.dart';
 
 class IntroScreen extends StatelessWidget {
-  const IntroScreen({super.key});
+  IntroScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,19 @@ class IntroScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: const Padding(
+        bottomNavigationBar: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: IntroBottomBar()));
+            child: IntroBottomBar(
+              onNext: onNext,
+              onPass: onPass,
+            )));
+  }
+
+  void onNext() {
+    print("Suivant");
+  }
+
+  void onPass() {
+    print("Passer");
   }
 }

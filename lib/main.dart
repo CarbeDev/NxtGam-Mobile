@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Lexend',
         useMaterial3: true,
       ),
-      home: const IntroScreen(),
+      home: IntroScreen(),
     );
   }
 }

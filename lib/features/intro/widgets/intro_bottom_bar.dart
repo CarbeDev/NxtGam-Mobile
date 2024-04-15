@@ -4,7 +4,10 @@ import 'package:mobile_app/shared/nxtgame_colors.dart';
 import 'package:mobile_app/shared/widgets/nxtgame_buttons.dart';
 
 class IntroBottomBar extends StatelessWidget {
-  const IntroBottomBar({super.key});
+  VoidCallback onPass;
+  VoidCallback onNext;
+
+  IntroBottomBar({required this.onPass, required this.onNext, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,9 +15,7 @@ class IntroBottomBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         InkWell(
-          onTap: () {
-            print("tapped");
-          },
+          onTap: onPass,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 34.0),
             child: Text(
@@ -23,7 +24,7 @@ class IntroBottomBar extends StatelessWidget {
             ),
           ),
         ),
-        NxtGamePrimaryButton("Next".tr(), () {}),
+        NxtGamePrimaryButton("Next".tr(), onNext),
       ],
     );
   }
