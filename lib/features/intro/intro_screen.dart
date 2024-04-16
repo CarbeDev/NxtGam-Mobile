@@ -31,7 +31,9 @@ class IntroScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: SvgPicture.asset(
                       introData.svgPath,
-                      fit: BoxFit.fitWidth,
+                      height: 400,
+                      width: 400,
+                      fit: BoxFit.contain,
                       colorFilter: const ColorFilter.mode(
                           NxtGameColors.black, BlendMode.srcIn),
                     ),
