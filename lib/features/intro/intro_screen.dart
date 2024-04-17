@@ -13,64 +13,55 @@ class IntroScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<IntroCubit, IntroState>(listener: (context, state) {
-      if (state is FinishedIntroState) {
-        // TODO: Naviguer vers l'écran de connexion
-      }
-    }, builder: (context, state) {
-      if (state is InProgressIntroState) {
-        final introData = state.getData();
-        return Scaffold(
-          body: Center(
-              child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: SvgPicture.asset(
-                  introData.svgPath,
-                  height: 400,
-                  width: 400,
-                  fit: BoxFit.contain,
-                  colorFilter: const ColorFilter.mode(
-                      NxtGameColors.black, BlendMode.srcIn),
-                ),
+    return BlocBuilder<IntroCubit, IntroState>(builder: (context, state) {
+      final introData = state.getData();
+      return Scaffold(
+        body: Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: SvgPicture.asset(
+                introData.svgPath,
+                height: 400,
+                width: 400,
+                fit: BoxFit.contain,
+                colorFilter: const ColorFilter.mode(
+                    NxtGameColors.black, BlendMode.srcIn),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: NxtGameTitle(introData.title.tr()),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: NxtGameDescription(introData.description.tr()),
-              ),
-            ],
-          )),
-          bottomNavigationBar: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: IntroBottomBar(
-              onNext: () {
-                if (state.isLastData) {
-                  navigateToLoginScreen(context);
-                } else {
-                  context.read<IntroCubit>().goNext();
-                }
-              },
-              onPass: () {
-                navigateToLoginScreen(context);
-              },
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: NxtGameTitle(introData.title.tr()),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: NxtGameDescription(introData.description.tr()),
+            ),
+          ],
+        )),
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          child: IntroBottomBar(
+            onNext: () {
+              if (state.isLastData) {
+                navigateToLoginScreen(context);
+              } else {
+                context.read<IntroCubit>().goNext();
+              }
+            },
+            onPass: () {
+              navigateToLoginScreen(context);
+            },
           ),
-        );
-      } else {
-        return Container();
-      }
+        ),
+      );
     });
   }
-}
 
-void navigateToLoginScreen(BuildContext context) {
-  Navigator.of(context)
-      .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
+  void navigateToLoginScreen(BuildContext context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
+  }
 }

@@ -1,21 +1,17 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class IntroCubit extends Cubit<IntroState> {
-  IntroCubit() : super(InProgressIntroState(0));
+  IntroCubit() : super(IntroState(0));
 
   void goNext() {
-    if (state is FinishedIntroState) throw Exception();
-
-    var currentState = (state as InProgressIntroState);
-    if (currentState.isLastData) {
-      emit(FinishedIntroState());
-    } else {
-      emit(InProgressIntroState(++currentState.displayedData));
-    }
+    emit(IntroState(++state.displayedData));
   }
 }
 
-abstract class IntroState {
+class IntroState {
+  int displayedData;
+  late bool isLastData;
+
   static final introData = [
     IntroScreenData("assets/svg/team-intro.svg", "CreateTeamIntroTitle",
         "CreateTeamIntroDescription"),
@@ -26,13 +22,8 @@ abstract class IntroState {
     IntroScreenData(
         "assets/svg/cart.svg", "MarketIntroTitle", "MarketIntroDescription")
   ];
-}
 
-class InProgressIntroState extends IntroState {
-  int displayedData;
-  late bool isLastData;
-
-  InProgressIntroState(this.displayedData) {
+  IntroState(this.displayedData) {
     isLastData = displayedData >= IntroState.introData.length - 1;
   }
 
@@ -40,8 +31,6 @@ class InProgressIntroState extends IntroState {
     return IntroState.introData[displayedData];
   }
 }
-
-class FinishedIntroState extends IntroState {}
 
 class IntroScreenData {
   String svgPath;
