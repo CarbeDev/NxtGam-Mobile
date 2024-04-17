@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_app/features/intro/intro_cubit.dart';
 import 'package:mobile_app/features/intro/widgets/intro_bottom_bar.dart';
+import 'package:mobile_app/features/login/login_screen.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
 import 'package:mobile_app/shared/widgets/nxtgame_texts.dart';
 
@@ -12,67 +13,64 @@ class IntroScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: BlocConsumer<IntroCubit, IntroState>(
-          listener: (context, state) {
-            if (state is FinishedIntroState) {
-              // TODO: Naviguer vers l'écran de connexion
-            }
-          },
-          builder: (context, state) {
-            if (state is InProgressIntroState) {
-              final introData = state.getData();
-
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: SvgPicture.asset(
-                      introData.svgPath,
-                      height: 400,
-                      width: 400,
-                      fit: BoxFit.contain,
-                      colorFilter: const ColorFilter.mode(
-                          NxtGameColors.black, BlendMode.srcIn),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: NxtGameTitle(introData.title.tr()),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: NxtGameDescription(introData.description.tr()),
-                  ),
-                ],
-              );
-            } else {
-              return Container();
-            }
-          },
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-        child: IntroBottomBar(
-          onNext: () {
-            context.read<IntroCubit>().goNext();
-          },
-          onPass: () {
-            //todo
-          },
-        ),
-      ),
-    );
+    return BlocConsumer<IntroCubit, IntroState>(listener: (context, state) {
+      if (state is FinishedIntroState) {
+        // TODO: Naviguer vers l'écran de connexion
+      }
+    }, builder: (context, state) {
+      if (state is InProgressIntroState) {
+        final introData = state.getData();
+        return Scaffold(
+          body: Center(
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: SvgPicture.asset(
+                  introData.svgPath,
+                  height: 400,
+                  width: 400,
+                  fit: BoxFit.contain,
+                  colorFilter: const ColorFilter.mode(
+                      NxtGameColors.black, BlendMode.srcIn),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: NxtGameTitle(introData.title.tr()),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: NxtGameDescription(introData.description.tr()),
+              ),
+            ],
+          )),
+          bottomNavigationBar: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: IntroBottomBar(
+              onNext: () {
+                if (state.isLastData) {
+                  navigateToLoginScreen(context);
+                } else {
+                  context.read<IntroCubit>().goNext();
+                }
+              },
+              onPass: () {
+                navigateToLoginScreen(context);
+              },
+            ),
+          ),
+        );
+      } else {
+        return Container();
+      }
+    });
   }
+}
 
-  void onNext() {
-    print("Suivant");
-  }
-
-  void onPass() {
-    print("Passer");
-  }
+void navigateToLoginScreen(BuildContext context) {
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
 }
