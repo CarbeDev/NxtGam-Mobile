@@ -1,0 +1,11 @@
+appId: com.nxtgam.mobile_app
+---
+- launchApp:
+    clearState: true
+- repeat:
+    while:
+      visible: "Next|Suivant"
+    commands:
+      - tapOn: "Next|Suivant"
+
+- assertVisible: "(Sign in with Google)|(Se connecter avec Google)"
