@@ -4,8 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mobile_app/features/login/login_repository.dart';
 
-class LoginSuccess extends LoginState {}
-
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
@@ -70,3 +68,5 @@ class LoginFailure extends LoginState {
 
   LoginFailure(this.error);
 }
+
+class LoginSuccess extends LoginState {}

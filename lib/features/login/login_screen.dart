@@ -31,13 +31,13 @@ class LoginScreen extends StatelessWidget {
                 }
                 return Center(
                   child: ElevatedButton.icon(
-                    icon: Icon(Icons.login), // Icône de connexion
-                    label: Text('Se connecter avec Google'),
+                    icon: const Icon(Icons.login), // Icône de connexion
+                    label: const Text('Se connecter avec Google'),
                     onPressed: () =>
                         context.read<LoginCubit>().loginWithGoogle(),
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
-                      backgroundColor: Color(0xFF6B8763),
+                      backgroundColor: const Color(0xFF6B8763),
                       // Couleur du texte et de l'icône
                       elevation: 2,
                       // Ombre du bouton
@@ -45,7 +45,7 @@ class LoginScreen extends StatelessWidget {
                         borderRadius:
                             BorderRadius.circular(30.0), // Bord arrondi
                       ),
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: 30, vertical: 10), // Espacement interne
                     ),
                   ),
