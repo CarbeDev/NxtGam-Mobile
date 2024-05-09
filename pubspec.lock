@@ -285,14 +285,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.11.0"
-  mutex:
-    dependency: transitive
-    description:
-      name: mutex
-      sha256: "8827da25de792088eb33e572115a5eb0d61d61a3c01acbc8bcbe76ed78f1a1f2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.1.0"
   nested:
     dependency: transitive
     description:
@@ -466,14 +458,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  supertokens_flutter:
-    dependency: "direct main"
-    description:
-      name: supertokens_flutter
-      sha256: e4bb2c21024fd02611bf2680cec374e3da42b94a3538e45cb68885a44b37439b
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.0"
   term_glyph:
     dependency: transitive
     description:
@@ -571,5 +555,5 @@ packages:
     source: hosted
     version: "6.5.0"
 sdks:
-  dart: ">=3.3.3 <3.9.0"
+  dart: ">=3.3.3 <4.0.0"
   flutter: ">=3.19.0"

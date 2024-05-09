@@ -2,12 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/features/intro/intro_screen.dart';
-import 'package:supertokens_flutter/supertokens.dart';
 
 import 'features/intro/intro_cubit.dart';
 
 Future<void> main() async {
-  SuperTokens.init(apiDomain: "http://localhost:8080", apiBasePath: "/auth");
 
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();

@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:supertokens_flutter/dio.dart';
 
 class NetworkManager {
   NetworkManager._();
@@ -26,6 +25,5 @@ class NetworkManager {
     }
 
     client = Dio(BaseOptions(baseUrl: apiUrl));
-    client.addSupertokensInterceptor();
   }
 }
