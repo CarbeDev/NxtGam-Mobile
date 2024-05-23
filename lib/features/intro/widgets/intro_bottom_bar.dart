@@ -24,7 +24,7 @@ class IntroBottomBar extends StatelessWidget {
             ),
           ),
         ),
-        NxtGamePrimaryButton("Next".tr(), onNext),
+        NxtGamePrimaryButton(text: "Next".tr(), onPressed: onNext),
       ],
     );
   }
