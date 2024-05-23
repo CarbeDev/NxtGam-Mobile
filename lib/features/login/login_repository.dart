@@ -1,22 +1,23 @@
-import 'package:mobile_app/network/network_manager.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginRepository {
-  static const signupPath = "/auth/signup";
+  final GoogleSignIn _googleSignIn;
 
-  static Future<bool> loginWithGoogle(String authCode) async {
-    var result = await NetworkManager.instance.client.post(
-      "/auth/signup",
-      data: {
-        "thirdPartyId": "google",
-        "redirectURIInfo": {
-          "redirectURIOnProviderDashboard": "",
-          "redirectURIQueryParams": {
-            "code": authCode,
-          },
-        },
-      },
-    );
+  LoginRepository()
+      : _googleSignIn = GoogleSignIn(
+          scopes: [
+            'email',
+            'https://www.googleapis.com/auth/contacts.readonly',
+          ],
+        );
 
-    return result.statusCode == 200;
+  Future<GoogleSignInAccount?> loginWithGoogle() async {
+    try {
+      final GoogleSignInAccount? account = await GoogleSignIn().signIn();
+      return account;
+    } catch (error) {
+      print('Error signing in with Google: $error');
+      return null;
+    }
   }
 }

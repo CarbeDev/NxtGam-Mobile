@@ -1,0 +1,22 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "nxtgame-93d74",
+          "appId": "1:340436727379:android:0c5f6584abcbff31e138a6",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "nxtgame-93d74",
+          "configurations": {
+            "android": "1:340436727379:android:0c5f6584abcbff31e138a6",
+            "ios": "1:340436727379:ios:6b0bea2b5c85e5b5e138a6"
+          }
+        }
+      }
+    }
+  }
+}
