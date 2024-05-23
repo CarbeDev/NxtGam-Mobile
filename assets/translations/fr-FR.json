@@ -9,5 +9,7 @@
   "MarketIntroDescription": "Restez à l'affût des opportunités avec un marché des transferts dynamique. Achetez et vendez des joueurs au sein de votre ligue ou recrutez des agents libres et prouvez votre flair aux autres managers",
   "GoogleLogin": "Se connecter avec Google",
   "Skip": "Passer",
-  "Next": "Suivant"
+  "Next": "Suivant",
+  "LoginWithGoogle": "Se connecter avec Google",
+  "LoginError": "Une erreur est survenu lors de l'authentification"
 }

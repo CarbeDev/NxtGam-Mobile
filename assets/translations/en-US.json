@@ -9,5 +9,7 @@
   "MarketIntroDescription": "Stay ahead of the game with a dynamic transfer market. Buy and sell players within your league or recruit free agents to prove your savvy to other managers.",
   "GoogleLogin": "Sign in with Google",
   "Skip": "Skip",
-  "Next": "Next"
+  "Next": "Next",
+  "LoginWithGoogle": "Log in with Google",
+  "LoginError": "An error occurred during authentication"
 }
