@@ -24,6 +24,7 @@ class NetworkManager {
       throw Exception("missing secret value");
     }
 
-    client = Dio(BaseOptions(baseUrl: apiUrl));
+    client =
+        Dio(BaseOptions(baseUrl: apiUrl, headers: {"NXTGAM_API_KEY": apiKey}));
   }
 }

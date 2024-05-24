@@ -1,4 +1,7 @@
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:mobile_app/network/nxtgam_api.dart';
+
+import 'login_responses.dart';
 
 class LoginRepository {
 
@@ -10,5 +13,10 @@ class LoginRepository {
       print('Error signing in with Google: $error');
       return null;
     }
+  }
+
+  Future<NxtGamLoginResponse> getUserInfo(String userId) async {
+    return await NxtGamApi.get<NxtGamLoginResponse>(
+        endpoint: "/login", requestParam: {"userId": userId});
   }
 }
