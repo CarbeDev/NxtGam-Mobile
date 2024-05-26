@@ -8,7 +8,7 @@ class NxtGameResponseFactory<T extends NxtGamResponse> {
       case NxtGamLoginResponse:
         return NxtGamLoginResponse(isNewUser: json["isNewUser"]) as T;
       case _:
-        throw Exception("${T.runtimeType} can't be create by this factory");
+        throw Exception("$T can't be create by this factory");
     }
   }
 }
