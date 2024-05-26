@@ -35,16 +35,9 @@ abstract class NxtGameButton extends StatelessWidget {
   }
 }
 
-class NxtGamePrimaryButton extends NxtGameButton {
-  const NxtGamePrimaryButton(
-      {super.key,
-      required String text,
-      required VoidCallback onPressed,
-      Widget? icon})
+class NxtGamPrimaryButton extends NxtGameButton {
+  const NxtGamPrimaryButton(
+      {super.key, required super.text, required super.onPressed, super.icon})
       : super(
-            text: text,
-            background: NxtGameColors.primary,
-            textColor: NxtGameColors.white,
-            onPressed: onPressed,
-            icon: icon);
+            background: NxtGameColors.primary, textColor: NxtGameColors.white);
 }

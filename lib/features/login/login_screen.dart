@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
-import 'package:mobile_app/shared/widgets/nxtgame_buttons.dart';
+import 'package:mobile_app/shared/widgets/nxtgam_buttons.dart';
 
 import 'login_cubit.dart';
 
@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                         NxtGameColors.white
                       ])),
                   child: Center(
-                    child: NxtGamePrimaryButton(
+                    child: NxtGamPrimaryButton(
                         text: "LoginWithGoogle".tr(),
                         onPressed: () =>
                             context.read<LoginCubit>().loginWithGoogle(),
