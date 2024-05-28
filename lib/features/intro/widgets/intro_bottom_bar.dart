@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
-import 'package:mobile_app/shared/widgets/nxtgame_buttons.dart';
+import 'package:mobile_app/shared/widgets/nxtgam_buttons.dart';
 
 class IntroBottomBar extends StatelessWidget {
   final VoidCallback onPass;
@@ -24,7 +24,7 @@ class IntroBottomBar extends StatelessWidget {
             ),
           ),
         ),
-        NxtGamePrimaryButton("Next".tr(), onNext),
+        NxtGamPrimaryButton(text: "Next".tr(), onPressed: onNext),
       ],
     );
   }

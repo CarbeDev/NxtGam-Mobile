@@ -6,7 +6,7 @@ import 'package:mobile_app/features/intro/intro_cubit.dart';
 import 'package:mobile_app/features/intro/widgets/intro_bottom_bar.dart';
 import 'package:mobile_app/features/login/login_screen.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
-import 'package:mobile_app/shared/widgets/nxtgame_texts.dart';
+import 'package:mobile_app/shared/widgets/nxtgam_texts.dart';
 
 class IntroScreen extends StatelessWidget {
   const IntroScreen({super.key});

@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:supertokens_flutter/dio.dart';
 
 class NetworkManager {
   NetworkManager._();
@@ -25,7 +24,7 @@ class NetworkManager {
       throw Exception("missing secret value");
     }
 
-    client = Dio(BaseOptions(baseUrl: apiUrl));
-    client.addSupertokensInterceptor();
+    client =
+        Dio(BaseOptions(baseUrl: apiUrl, headers: {"NXTGAM_API_KEY": apiKey}));
   }
 }

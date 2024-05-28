@@ -1,8 +1,8 @@
-import 'dart:io';
-
+import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:mobile_app/features/login/login_repository.dart';
+import 'package:mobile_app/features/login/repository/login_repository.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
@@ -10,49 +10,28 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> loginWithGoogle() async {
     emit(LoginLoading());
     try {
-      GoogleSignIn googleSignIn;
-
-      if (Platform.isAndroid) {
-        String? serverClientId =
-            const String.fromEnvironment("GOOGLE_CLIENT_ID");
-        if (serverClientId.isEmpty) {
-          emit(LoginFailure("google server client id is missing"));
-          return;
-        }
-        googleSignIn =
-            GoogleSignIn(serverClientId: "SERVER_CLIENT_ID", scopes: ['email']);
-      } else {
-        emit(LoginFailure("Not implemented for ${Platform.operatingSystem}"));
-        return;
+      final loginRepo = LoginRepository();
+      final GoogleSignInAccount? googleUser = await loginRepo.loginWithGoogle();
+      if (googleUser == null) {
+        throw Exception();
       }
 
-      if (googleSignIn.currentUser != null) {
-        await googleSignIn.disconnect();
-      }
+      final GoogleSignInAuthentication googleAuth =
+          await googleUser.authentication;
 
-      GoogleSignInAccount? account = await googleSignIn.signIn();
+      final credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
 
-      if (account == null) {
-        emit(LoginFailure("Google sign in was aborted"));
-        return;
-      }
+      final firebaseCredential =
+          await FirebaseAuth.instance.signInWithCredential(credential);
 
-      String? authCode = account.serverAuthCode;
+      final loginResponse =
+          await loginRepo.getUserInfo(firebaseCredential.user!.uid);
 
-      if (authCode == null) {
-        emit(LoginFailure("No server code returned by Google sign in"));
-        return;
-      }
-
-      bool loggedIn = await LoginRepository.loginWithGoogle(authCode);
-      if (loggedIn) {
-        emit(LoginSuccess());
-      } else {
-        emit(LoginFailure("Failed to log in with Google"));
-      }
+      emit(LoginSuccess(loginResponse.isNewUser));
     } catch (e) {
-      print(e.toString());
-      emit(LoginFailure(e.toString()));
+      print(e);
+      emit(LoginFailure("LoginError".tr()));
     }
   }
 }
@@ -69,4 +48,8 @@ class LoginFailure extends LoginState {
   LoginFailure(this.error);
 }
 
-class LoginSuccess extends LoginState {}
+class LoginSuccess extends LoginState {
+  final bool isNewUser;
+
+  LoginSuccess(this.isNewUser);
+}
