@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/features/intro/intro_screen.dart';
+import 'package:mobile_app/shared/nxtgame_colors.dart';
 
 import 'features/intro/intro_cubit.dart';
 import 'firebase_options.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent),
+            colorScheme: ColorScheme.fromSeed(seedColor: NxtGameColors.primary),
             fontFamily: 'Lexend',
             useMaterial3: true,
           ),
