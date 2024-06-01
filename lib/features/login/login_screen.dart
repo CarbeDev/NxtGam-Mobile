@@ -60,5 +60,5 @@ class LoginScreen extends StatelessWidget {
 
 void navigateToNewAccountScreen(BuildContext context) {
   Navigator.of(context)
-      .push(MaterialPageRoute(builder: (context) => NewAccountScreen()));
+      .push(MaterialPageRoute(builder: (context) => const NewAccountScreen()));
 }
