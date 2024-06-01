@@ -4,7 +4,6 @@ class NewAccountCubit extends Cubit<NewAccountState> {
   NewAccountCubit() : super(NewAccountState(""));
 
   void updateUsername(String newValue) {
-    print(newValue);
     emit(NewAccountState(newValue));
   }
 }
