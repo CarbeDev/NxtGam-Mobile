@@ -3,14 +3,15 @@ import 'package:mobile_app/shared/nxtgame_colors.dart';
 
 class NxtGameTitle extends StatelessWidget {
   final String text;
+  final TextAlign? textAlign;
 
-  const NxtGameTitle(this.text, {super.key});
+  const NxtGameTitle(this.text, {this.textAlign, super.key});
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      textAlign: TextAlign.center,
+      textAlign: textAlign ?? TextAlign.left,
       style: const TextStyle(fontSize: 24),
     );
   }

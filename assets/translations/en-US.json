@@ -11,5 +11,8 @@
   "Skip": "Skip",
   "Next": "Next",
   "LoginWithGoogle": "Log in with Google",
-  "LoginError": "An error occurred during authentication"
+  "LoginError": "An error occurred during authentication",
+  "Welcome": "Welcome",
+  "Username": "Username",
+  "NewAccountPlaceholder": "Min 3 char"
 }

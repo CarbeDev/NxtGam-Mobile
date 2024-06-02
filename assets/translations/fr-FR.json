@@ -11,5 +11,8 @@
   "Skip": "Passer",
   "Next": "Suivant",
   "LoginWithGoogle": "Se connecter avec Google",
-  "LoginError": "Une erreur est survenu lors de l'authentification"
+  "LoginError": "Une erreur est survenu lors de l'authentification",
+  "Welcome": "Bienvenue",
+  "Username": "Nom d'utilisateur",
+  "NewAccountPlaceholder": "Minimum 3 caractere"
 }
