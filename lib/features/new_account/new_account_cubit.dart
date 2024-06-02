@@ -18,6 +18,10 @@ class NewAccountState {
   late final bool isUsernameValid;
 
   NewAccountState(this.username) {
-    isUsernameValid = username.length >= 3;
+    isUsernameValid = _isUsernameValid(username);
+  }
+
+  bool _isUsernameValid(String username) {
+    return RegExp(r'^[a-zA-Z][a-zA-Z0-9_]{3,25}$').hasMatch(username);
   }
 }
