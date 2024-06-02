@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/features/new_account/new_account_cubit.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
-import 'package:mobile_app/shared/widgets/nxtgam_buttons.dart';
+import 'package:mobile_app/shared/widgets/buttons/nxtgam_buttons.dart';
 import 'package:mobile_app/shared/widgets/nxtgam_texts.dart';
 
 class NewAccountScreen extends StatelessWidget {

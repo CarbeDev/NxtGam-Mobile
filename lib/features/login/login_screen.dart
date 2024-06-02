@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mobile_app/features/new_account/new_account_screen.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
-import 'package:mobile_app/shared/widgets/nxtgam_buttons.dart';
+import 'package:mobile_app/shared/widgets/buttons/nxtgam_buttons.dart';
 
 import 'login_cubit.dart';
 

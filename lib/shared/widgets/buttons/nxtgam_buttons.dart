@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
+import 'package:mobile_app/shared/widgets/buttons/nxtgam_button_style.dart';
 
 abstract class NxtGameButton extends StatelessWidget {
   final String text;
@@ -19,14 +20,9 @@ abstract class NxtGameButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final style = ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(background),
-      foregroundColor: MaterialStateProperty.all<Color>(textColor),
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0))),
-      padding: MaterialStateProperty.all<EdgeInsets>(
-          const EdgeInsets.symmetric(vertical: 12.0, horizontal: 34.0)),
-    );
+    final style = isDisabled
+        ? NxtGamButtonStyle(NxtGameColors.grey, NxtGameColors.lightGrey)
+        : NxtGamButtonStyle(textColor, background);
 
     final onPressedOrNullIfDisabled = isDisabled ? null : onPressed;
     if (icon == null) {
