@@ -9,7 +9,6 @@ class NewAccountCubit extends Cubit<NewAccountState> {
   }
 
   Future<void> saveUsername() async {
-    print(state.username);
     await NewAccountRepository().sendUsername(state.username);
   }
 }

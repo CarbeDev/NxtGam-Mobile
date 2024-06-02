@@ -10,7 +10,7 @@ class NxtGameResponseFactory<T extends NxtGamResponse> {
 
     switch (T) {
       case NxtGamLoginResponse:
-        return NxtGamLoginResponse(isNewUser: json!["isNewUser"]) as T;
+        return NxtGamLoginResponse.from(json!) as T;
       case NxtGamEmptyResponse:
         return NxtGamEmptyResponse() as T;
       case _:
