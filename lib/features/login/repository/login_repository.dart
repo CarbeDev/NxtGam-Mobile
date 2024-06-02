@@ -4,7 +4,6 @@ import 'package:mobile_app/network/nxtgam_api.dart';
 import 'login_responses.dart';
 
 class LoginRepository {
-
   Future<GoogleSignInAccount?> loginWithGoogle() async {
     try {
       final GoogleSignInAccount? account = await GoogleSignIn().signIn();
@@ -16,7 +15,7 @@ class LoginRepository {
   }
 
   Future<NxtGamLoginResponse> getUserInfo(String userId) async {
-    return await NxtGamApi.get<NxtGamLoginResponse>(
-        endpoint: "/login", requestParam: {"userId": userId});
+    return await NxtGamApi.makeRequest<NxtGamLoginResponse>(
+        requestType: RequestType.get, endpoint: "/login");
   }
 }

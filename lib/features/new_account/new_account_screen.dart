@@ -47,7 +47,8 @@ class NewAccountScreen extends StatelessWidget {
             child: NxtGamPrimaryButton(
                 text: "Next".tr(),
                 isDisabled: !state.isUsernameValid,
-                onPressed: () => {}),
+                onPressed: () =>
+                    {context.read<NewAccountCubit>().saveUsername()}),
           ),
         );
       }),
