@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mobile_app/features/home/home_screen.dart';
 import 'package:mobile_app/features/new_account/new_account_screen.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
 import 'package:mobile_app/shared/widgets/buttons/nxtgam_buttons.dart';
@@ -20,7 +21,9 @@ class LoginScreen extends StatelessWidget {
           child: BlocListener<LoginCubit, LoginState>(
             listener: (context, state) {
               if (state is LoginSuccess) {
-                navigateToNewAccountScreen(context);
+                state.isNewUser
+                    ? _navigateToNewAccountScreen(context)
+                    : _navigateToHome(context);
               } else if (state is LoginFailure) {
                 ScaffoldMessenger.of(context)
                     .showSnackBar(SnackBar(content: Text(state.error)));
@@ -58,7 +61,12 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-void navigateToNewAccountScreen(BuildContext context) {
+void _navigateToHome(BuildContext context) {
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (context) => const HomeScreen()));
+}
+
+void _navigateToNewAccountScreen(BuildContext context) {
   Navigator.of(context)
       .push(MaterialPageRoute(builder: (context) => const NewAccountScreen()));
 }

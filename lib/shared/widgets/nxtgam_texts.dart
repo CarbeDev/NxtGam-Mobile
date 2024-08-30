@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/shared/nxtgame_colors.dart';
 
-class NxtGameTitle extends StatelessWidget {
+class NxtGamTitle extends StatelessWidget {
   final String text;
   final TextAlign? textAlign;
 
-  const NxtGameTitle(this.text, {this.textAlign, super.key});
+  const NxtGamTitle(this.text, {this.textAlign, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +17,10 @@ class NxtGameTitle extends StatelessWidget {
   }
 }
 
-class NxtGameDescription extends StatelessWidget {
+class NxtGamDescription extends StatelessWidget {
   final String text;
 
-  const NxtGameDescription(this.text, {super.key});
+  const NxtGamDescription(this.text, {super.key});
 
   @override
   Widget build(BuildContext context) {

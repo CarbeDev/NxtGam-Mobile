@@ -33,12 +33,12 @@ class IntroScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: NxtGameTitle(introData.title.tr(),
+              child: NxtGamTitle(introData.title.tr(),
                   textAlign: TextAlign.center),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: NxtGameDescription(introData.description.tr()),
+              child: NxtGamDescription(introData.description.tr()),
             ),
           ],
         )),

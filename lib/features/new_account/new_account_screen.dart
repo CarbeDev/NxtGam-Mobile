@@ -23,7 +23,7 @@ class NewAccountScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxtGameTitle("Welcome".tr()),
+                NxtGamTitle("Welcome".tr()),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: TextFormField(
