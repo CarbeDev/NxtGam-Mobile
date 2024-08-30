@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
           builder: (context, state) {
             return Scaffold(
               appBar: AppBar(
+                automaticallyImplyLeading: false,
                 title: NxtGamTitle(state.username),
                 actions: [
                   IconButton(
