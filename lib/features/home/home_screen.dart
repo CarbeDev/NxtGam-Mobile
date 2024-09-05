@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_app/features/home/home_cubit.dart';
@@ -36,8 +37,20 @@ class HomeScreen extends StatelessWidget {
                       })
                 ],
               ),
-              body: const Center(
-                child: NxtGamDescription("Aucune League N'as ete rejointe"),
+              body: Center(
+                child: NxtGamDescription("NoLeagueInProgress".tr()),
+              ),
+              bottomNavigationBar: BottomNavigationBar(
+                items: [
+                  BottomNavigationBarItem(
+                      icon: const Icon(Icons.home), label: "Home".tr()),
+                  BottomNavigationBarItem(
+                      icon: const Icon(Icons.notifications),
+                      label: "Notifications".tr())
+                ],
+                selectedItemColor: NxtGameColors.primary,
+                onTap: context.read<HomeCubit>().changeView,
+                currentIndex: state.bottomBarIndex,
               ),
             );
           },

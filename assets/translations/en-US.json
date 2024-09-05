@@ -14,5 +14,8 @@
   "LoginError": "An error occurred during authentication",
   "Welcome": "Welcome",
   "Username": "Username",
-  "NewAccountPlaceholder": "Min 3 char"
+  "NewAccountPlaceholder": "Min 3 char",
+  "NoLeagueInProgress": "No league in progress",
+  "Home": "Home",
+  "Notifications": "Notifications"
 }
