@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
                   IconButton(
                       icon: const Icon(
                         Icons.add,
-                        color: NxtGameColors.primary,
+                        color: NxtGamColors.primary,
                       ),
                       onPressed: () {
                         print("add league");
@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
                   IconButton(
                       icon: const Icon(
                         Icons.settings,
-                        color: NxtGameColors.grey,
+                        color: NxtGamColors.grey,
                       ),
                       onPressed: () {
                         print("Settings");
@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
                       icon: const Icon(Icons.notifications),
                       label: "Notifications".tr())
                 ],
-                selectedItemColor: NxtGameColors.primary,
+                selectedItemColor: NxtGamColors.primary,
                 onTap: context.read<HomeCubit>().changeView,
                 currentIndex: state.bottomBarIndex,
               ),

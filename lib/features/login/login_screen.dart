@@ -40,10 +40,7 @@ class LoginScreen extends StatelessWidget {
                       gradient: LinearGradient(
                           begin: Alignment.bottomCenter,
                           end: Alignment(0, -0.33),
-                          colors: [
-                        NxtGameColors.primary,
-                        NxtGameColors.white
-                      ])),
+                          colors: [NxtGamColors.primary, NxtGamColors.white])),
                   child: Center(
                     child: NxtGamPrimaryButton(
                         text: "LoginWithGoogle".tr(),

@@ -27,8 +27,7 @@ class IntroScreen extends StatelessWidget {
                 height: 400,
                 width: 400,
                 fit: BoxFit.contain,
-                colorFilter: const ColorFilter.mode(
-                    NxtGameColors.black, BlendMode.srcIn),
+                colorFilter: const ColorFilter.mode(NxtGamColors.black, BlendMode.srcIn),
               ),
             ),
             Padding(

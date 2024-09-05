@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           supportedLocales: context.supportedLocales,
           locale: context.locale,
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: NxtGameColors.primary),
+            colorScheme: ColorScheme.fromSeed(seedColor: NxtGamColors.primary),
             fontFamily: 'Lexend',
             useMaterial3: true,
           ),

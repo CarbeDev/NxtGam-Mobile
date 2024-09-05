@@ -27,7 +27,7 @@ class NxtGamDescription extends StatelessWidget {
     return Text(
       text,
       textAlign: TextAlign.center,
-      style: const TextStyle(color: NxtGameColors.grey),
+      style: const TextStyle(color: NxtGamColors.grey),
     );
   }
 }
