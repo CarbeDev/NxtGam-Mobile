@@ -23,7 +23,7 @@ class NewAccountScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NxtGameTitle("Welcome".tr()),
+                NxtGamTitle("Welcome".tr()),
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8),
                   child: TextFormField(
@@ -31,10 +31,10 @@ class NewAccountScreen extends StatelessWidget {
                         border: const OutlineInputBorder(),
                         labelText: "Username".tr(),
                         hintText: "NewAccountPlaceholder".tr(),
-                        focusColor: NxtGameColors.primary,
+                        focusColor: NxtGamColors.primary,
                         focusedBorder: const OutlineInputBorder(
                             borderSide:
-                                BorderSide(color: NxtGameColors.primary))),
+                                BorderSide(color: NxtGamColors.primary))),
                     onChanged: (value) =>
                         {context.read<NewAccountCubit>().updateUsername(value)},
                   ),

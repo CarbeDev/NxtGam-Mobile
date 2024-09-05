@@ -21,7 +21,7 @@ abstract class NxtGameButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = isDisabled
-        ? NxtGamButtonStyle(NxtGameColors.grey, NxtGameColors.lightGrey)
+        ? NxtGamButtonStyle(NxtGamColors.grey, NxtGamColors.lightGrey)
         : NxtGamButtonStyle(textColor, background);
 
     final onPressedOrNullIfDisabled = isDisabled ? null : onPressed;
@@ -47,6 +47,5 @@ class NxtGamPrimaryButton extends NxtGameButton {
       required super.onPressed,
       super.icon,
       super.isDisabled})
-      : super(
-            background: NxtGameColors.primary, textColor: NxtGameColors.white);
+      : super(background: NxtGamColors.primary, textColor: NxtGamColors.white);
 }

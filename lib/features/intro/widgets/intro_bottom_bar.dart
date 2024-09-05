@@ -20,7 +20,7 @@ class IntroBottomBar extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 34.0),
             child: Text(
               "Skip".tr(),
-              style: const TextStyle(color: NxtGameColors.primary),
+              style: const TextStyle(color: NxtGamColors.primary),
             ),
           ),
         ),
